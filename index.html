@@ -17,5 +17,12 @@
     you the cipher text, or if you like I'll even email it to your
     conspirator.</p>
     <h2>Happy spying!</h2>
+    <div id=shiftSlider>
+      <p>Shift (1-25):<input id="inputShift" type="range" min="1" max="25"
+        value="3" oninput="displayShift.value=inputShift.value">
+      <output id="displayShift" name="displayShift", for="inputShift">3</output></p>
+    </div>
+    <textarea id="plaintext" rows="4" cols="50" maxlength="100"
+    placeholder="Fewer than 100 characters, please."></textarea>
   </body>
 </html>
