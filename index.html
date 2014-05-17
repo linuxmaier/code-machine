@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+      if (typeof jQuery == 'undefined') {
+        document.write(unescape(
+          "%3Cscript src='jquery-1.11.1.js' type='text/javascript'%3E%3C/script%3E"));
+      }
+    </script>
     <title>Code Machine</title>
   </head>
   <body>
@@ -17,12 +24,21 @@
     you the cipher text, or if you like I'll even email it to your
     co-conspirator.</p>
     <h2>Happy spying!</h2>
-    <div id=shiftSlider>
-      <p>Shift (1-25):<input id="inputShift" type="range" min="1" max="25"
-        value="3" oninput="displayShift.value=inputShift.value">
-      <output id="displayShift" name="displayShift", for="inputShift">3</output></p>
-    </div>
-    <textarea id="plaintext" rows="4" cols="50" maxlength="100"
-      placeholder="Fewer than 100 characters, please."></textarea>
+    <form id="cipherPick">
+      Caesar Cipher: <input type="radio" name="cipher" value="caesar">
+      Substitution (random): <input type="radio" name="cipher" value="subst">
+      <br>
+      <div id="caesarOptions">
+        Shift (1-25):<input id="inputShift" type="range" min="1" max="25"
+        value="3" oninput="displayShift.value=inputShift.value" allign="bottom">
+        <output id="displayShift" name="displayShift" for="inputShift">3</output>
+        <br>
+        Shift Left: <input type="radio" name="shiftDirection" value="left"
+        checked=true>
+        Shift Right: <input type="radio" name="shiftDirection" value="right">
+      </div>
+      <textarea id="plaintext" rows="4" cols="50" maxlength="200"
+        placeholder="Fewer than 200 characters, please."></textarea>
+    </form>
   </body>
 </html>
