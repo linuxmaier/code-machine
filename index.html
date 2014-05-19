@@ -28,9 +28,9 @@
     <h2>Happy spying!</h2>
     <form id="cipherPick">
       Caesar Cipher: <input type="radio" name="cipher" value="caesar"
-                      onclick="$('#caesarOptions').show(200)">
+                      onclick="$('#caesarOptions').show(150)">
       Substitution (random): <input type="radio" name="cipher" value="subst"
-                      onclick="$('#caesarOptions').hide(200)">
+                      onclick="$('#caesarOptions').hide(150)">
       <br>
       <div id="caesarOptions">
         Shift (1-25):<input id="inputShift" type="range" min="1" max="25"
@@ -38,11 +38,12 @@
         <output id="displayShift" name="displayShift" for="inputShift">3</output>
         <br>
         Shift Left: <input type="radio" name="shiftDirection" value="left"
-        checked=true>
+                    checked=true>
         Shift Right: <input type="radio" name="shiftDirection" value="right">
       </div>
       <textarea id="plaintext" rows="4" cols="50" maxlength="200"
         placeholder="Fewer than 200 characters, please."></textarea>
     </form>
+    <button onclick="encipher();">Button</button>
   </body>
 </html>
