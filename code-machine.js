@@ -54,7 +54,13 @@ function caesarCipher(direction, shift, text) {
         var plainLetter = plainText.charAt(i);
         var alphaIndex = alpha.indexOf(plainLetter);
         if (alphaIndex >= 0) {
-            cipherText += alpha[(alphaIndex + shift) % alpha.length];
+            if (alphaIndex + shift >= 0) {
+                cipherText += alpha.charAt((alphaIndex + shift) % alpha.length);
+            }
+            else {
+                alphaIndex = alphaIndex + alpha.length;
+                cipherText += alpha.charAt((alphaIndex + shift) % alpha.length);
+            }
         }
         else {
             cipherText += plainLetter;
