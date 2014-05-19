@@ -5,14 +5,12 @@ function encipher() {
         var direction = $('input[name=shiftDirection]:checked').val();
         var shift = parseInt($('#inputShift').val());
         cipherText = caesarCipher(direction, shift, plainText);
-        console.log(cipherText);
-        return;
     }
     if ($(':radio[value=subst]').is(':checked')) {
         cipherText = substCipher(plainText);
-        console.log(cipherText);
-        return;
     }
+    $('#ciphertext').text(cipherText);
+    return cipherText;
 }
 
 function substCipher(text) {
@@ -54,6 +52,7 @@ function caesarCipher(direction, shift, text) {
         var plainLetter = plainText.charAt(i);
         var alphaIndex = alpha.indexOf(plainLetter);
         if (alphaIndex >= 0) {
+            //add alpha.length to alphaIndex to solve negative index issues
             alphaIndex = alphaIndex + alpha.length;
             cipherText += alpha.charAt((alphaIndex + shift) % alpha.length);
         }
