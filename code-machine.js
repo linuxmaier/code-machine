@@ -43,7 +43,22 @@ function substCipher(text) {
     return cipherText;
 }
 
-function caesarCipher(direction, shift, plainText) {
-    alert("this isn't done yet");
-    return;
+function caesarCipher(direction, shift, text) {
+    var plainText = text.toUpperCase();
+    var alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var cipherText = '';
+    if (direction == "left") {
+        shift = -shift;
+    }
+    for (var i = 0; i < plainText.length; i++) {
+        var plainLetter = plainText.charAt(i);
+        var alphaIndex = alpha.indexOf(plainLetter);
+        if (alphaIndex >= 0) {
+            cipherText += alpha[(alphaIndex + shift) % alpha.length];
+        }
+        else {
+            cipherText += plainLetter;
+        }
+    }
+    return cipherText;
 }
