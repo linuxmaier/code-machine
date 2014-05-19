@@ -9,6 +9,7 @@
       }
     </script>
     <script src="code-machine.js"></script>
+    <link rel="stylesheet" href="code-machine.css">
     <title>Code Machine</title>
   </head>
   <body>
@@ -26,8 +27,10 @@
     co-conspirator.</p>
     <h2>Happy spying!</h2>
     <form id="cipherPick">
-      Caesar Cipher: <input type="radio" name="cipher" value="caesar">
-      Substitution (random): <input type="radio" name="cipher" value="subst">
+      Caesar Cipher: <input type="radio" name="cipher" value="caesar"
+                      onclick="$('#caesarOptions').show(200)">
+      Substitution (random): <input type="radio" name="cipher" value="subst"
+                      onclick="$('#caesarOptions').hide(200)">
       <br>
       <div id="caesarOptions">
         Shift (1-25):<input id="inputShift" type="range" min="1" max="25"
